@@ -1,0 +1,66 @@
+<li
+  class="flex items-center justify-between cursor-default"
+  (mouseenter)="enableHover()"
+  (mouseleave)="disableHover()"
+>
+  <div
+    (click)="handleCheck()"
+    class="cursor-pointer py-3 px-2 min-w-10 flex items-center justify-center"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="size-6 min-w-6 opacity-70"
+      width="44"
+      height="44"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      @if(task.completed) {
+      <path
+        d="M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336zm-1.293 5.953a1 1 0 0 0 -1.32 -.083l-.094 .083l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.403 1.403l.083 .094l2 2l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z"
+        stroke-width="0"
+        fill="currentColor"
+      />
+      } @else {
+      <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+      }
+    </svg>
+  </div>
+  <div
+    class="w-full py-3 flex items-center line-through opacity-70"
+    [class.line-through]="task.completed"
+  >
+    <p>{{ task.title }}</p>
+  </div>
+  <div
+    class="cursor-pointer py-3 px-2 min-w-10 min-h-full flex items-center justify-center"
+    (click)="handleDelete()"
+  >
+    @if(isHovered()) {
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="size-6 min-w-6 opacity-70 stroke-red-600"
+      width="44"
+      height="44"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M4 7l16 0" />
+      <path d="M10 11l0 6" />
+      <path d="M14 11l0 6" />
+      <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+      <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+    </svg>
+    }
+  </div>
+</li>
