@@ -51,6 +51,9 @@ export class AppComponent {
   total = computed(() => {
     return this.tasksFiltered().length;
   });
+  currentYear = computed(() => {
+    return new Date().getFullYear();
+  });
   newTaskForm = new FormGroup({
     title: new FormControl('', {
       nonNullable: true,
